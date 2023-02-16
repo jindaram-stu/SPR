@@ -1,6 +1,6 @@
 .container {
     width : 100%;
-    height : 500px;
+    height : auto;
     padding : 25px;
     box-sizing: border-box;
 }
@@ -23,16 +23,7 @@
     background-color: rgb(223, 223, 223);
 }
 
-.button {
-    width : 100%;
-    height : 50px;
-    background-color:  rgb(47, 92, 239);
-    border : none;
-    border-radius: 12px;
-    color : white;
-    margin-top : 15px;
-    font-size : 17px;
-}
+/* textarea */
 
 .area {
     width : 100%;
@@ -49,4 +40,12 @@
 
 .area:hover {
     border : 1px solid rgb(124, 124, 124);
+}
+
+/* footer */
+
+.footer {
+    width : 100%;
+    height : 100px;
+    background-color: rgb(47, 92, 239);
 }
