@@ -1,0 +1,28 @@
+
+.button {
+    width : 100%;
+    height : 50px;
+    background-color:  rgb(47, 92, 239);
+    border : none;
+    border-radius: 12px;
+    color : white;
+    font-weight: bold;
+    margin-top : 15px;
+    font-size : 17px;
+}
+
+.button:hover {
+    cursor : pointer;
+}
+
+.disabledButton {
+    width : 100%;
+    height : 50px;
+    background-color:  rgb(152, 152, 152);
+    border : none;
+    border-radius: 12px;
+    color : white;
+    font-weight: bold;
+    margin-top : 15px;
+    font-size : 17px;
+}
