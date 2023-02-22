@@ -1,4 +1,5 @@
 import axios from 'axios';
+import LoadingPage from 'pages/LoadingPage/LoadingPage';
 import RegisterLimitPage from 'pages/RegisterLimitPage/RegisterLimitPage';
 import { useEffect, useState } from 'react';
 import RegisterDonePage from './pages/RegisterDonePage/RegisterDonePage';
@@ -23,7 +24,9 @@ function App() {
     <div className="App">
       { loaded ? 
           canRegister ? registerDone ? <RegisterDonePage/> : <RegisterPage setRegisterDone={setRegisterDone}/> : <RegisterLimitPage/>
-      : <></> }
+      : <LoadingPage/> }
+
+    
     </div>
   );
 }
