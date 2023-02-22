@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
-import style from './RegisterPage.module.css'
-import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
+import React, {useEffect, useState} from 'react';
+import { FormGroup } from '@mui/material';
 import Input from '../../component/Input/Input';
-import CharacterCounter from '../../component/CharacterCounter/CharacterCounter';
 import Submit from '../../component/Submit/Submit';
+import Comment from 'component/Comment/Comment';
+import SafelyPreImage from 'resource/safely_image.PNG';
+import styled from 'styled-components';
+import Footer from '../../component/Footer'
+import ClauseCheckbox from 'component/Checkbox/ClauseCheckbox';
 
 const RegisterPage = (props) => {
 
@@ -14,8 +17,7 @@ const RegisterPage = (props) => {
         "department" : "",
         "position" : "",
         "comment" : "",
-        "privacyPolicy" : "O",
-        "thirdParty" : "X"  
+        "privacyPolicy" : "X",
     })
 
     const handleValue = (e) => {
@@ -32,9 +34,11 @@ const RegisterPage = (props) => {
 
     return (
         <div>
-            <div className={`${style.container}`}>
-                <div className={`${style.image}`}>이미지</div>
-                <h3 className={`${style.title}`}> 세이플리 사전 예약 신청</h3>
+            <SafelyBanner src={SafelyPreImage}/>
+            <Container>
+                
+                <Title>세이플리 사전 예약 신청</Title>
+                <SubTitle>※ 본 이벤트는 안드로이드폰 사용자만을 대상으로 합니다.</SubTitle>
 
                 <Input
                     type="이름"
@@ -43,9 +47,9 @@ const RegisterPage = (props) => {
                     onChange={handleValue}/>
 
                 <Input
-                    type="전화번호"
+                    type="휴대전화 번호"
                     name="phone"
-                    placeholder="전화번호를 입력하세요."
+                    placeholder="'-' 없이 입력하세요."
                     onChange={handleValue}/>
 
                 <Input
@@ -66,22 +70,53 @@ const RegisterPage = (props) => {
                     placeholder="직급을 입력하세요."
                     onChange={handleValue}/>
                 
-                <h4 className={`${style.subtitle}`}>세이플리에게 한마디 *</h4> <br></br>
-                <textarea name="comment" className={`${style.area}`} placeholder="세이플리에게 하고싶은 한마디를 남겨주세요! (200자 이내)" onChange={handleValue}></textarea>
-                <CharacterCounter comment={form.comment}/>
+                <Comment
+                    onChange={handleValue}
+                    commentValue={form.comment}/>
 
-                <FormGroup sx={{marginTop : "30px"}}>
-                    <FormControlLabel control={<Checkbox name="privacyPolicy" defaultChecked onChange={handleCheck}/>} label=" (필수) 개인 정보 수집 이용 및 마케팅 활용에 동의합니다." />
-                    <FormControlLabel control={<Checkbox name="thirdParty" onChange={handleCheck} />} label=" (선택) 개인 정보의 제 3자 제공에 동의합니다." />
+                <FormGroup sx={{marginTop : "50px", marginBottom : "30px"}}>
+                    <ClauseCheckbox
+                        name="privacyPolicy"
+                        text="(필수) 개인 정보 수집 이용 및 마케팅 활용에 동의합니다."
+                        onChange={handleCheck}
+                        />
                 </FormGroup>
                 
                 <Submit form={form} setRegisterDone={props.setRegisterDone}/>
-            </div>
-            <footer className={`${style.footer}`}>
-                    
-            </footer>
+            </Container>
+            
+            <Footer/>
         </div>
     )
 }
+
+const SafelyBanner = styled.img`
+        width : 100%;
+`
+
+const Container = styled.div`
+    width : 100%;
+    height : auto;
+    padding : 25px;
+    box-sizing: border-box;
+`
+
+const Title = styled.h3`
+    text-align: center; 
+    font-size : 25px;
+    font-weight: bold;
+    color : #4D2EDD;
+    margin : 0;
+    margin-top : 12px;
+    font-family: 'Noto Sans';
+    letter-spacing : 3px;
+`   
+
+const SubTitle = styled.p`
+    text-align : center;
+    font-size : 12px;
+    color : gray;
+
+`
 
 export default RegisterPage;
