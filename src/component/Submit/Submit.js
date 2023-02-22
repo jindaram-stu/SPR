@@ -3,12 +3,26 @@ import React, { useState } from 'react';
 import { validateForm } from '../../util/Validate';
 import style from './Submit.module.css'
 
+const SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbwZMUMfolRTm8bHUBVYVDYuO7cevAuYpGAJjLpT_7Rfi5xvt98CkLbWnLekLG8B3mt_HQ/exec';
+
+// const SubmitButton = styled.button`
+//     width : 100%;
+//     height : 50px;
+//     background-color:  #4D2EDD;
+//     border : none;
+//     border-radius: 5px;
+//     color : white;
+//     font-weight: bold;
+//     margin-top : 15px;
+//     font-size : 17px;
+
+//     color : ${(props) => props.clicked }
+// `
+
 const Submit = (props) => {
 
-    const SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbzd6WeFMirKck5fOu4-Z3Fh3W7bRGVKW5EFU6J7q7x3P8sRz_68ORZniK6I2DcC8rwrsA/exec';
-    
     const [clicked, setClicked] = useState(false);
-
+ 
     const form = props.form;
     const setRegisterDone = props.setRegisterDone;
 
@@ -24,6 +38,7 @@ const Submit = (props) => {
         }
         
         const formData = new FormData();
+
         formData.append('name' , form.name);
         formData.append('phone' , form.phone);
         formData.append('company' , form.company);
@@ -31,7 +46,6 @@ const Submit = (props) => {
         formData.append('position' , form.position);
         formData.append('comment',form.comment);
         formData.append('privacyPolicy' , form.privacyPolicy);
-        formData.append('thirdParty' , form.thirdParty);
 
         await axios.post(SHEET_API_URL, formData)
         .then((response) => {
@@ -47,7 +61,7 @@ const Submit = (props) => {
 
     return (
         <>
-            <button onClick={submitForm} disabled={clicked} className={clicked ? `${style.disabledButton}` : `${style.button}`}>사전 예약 신청</button>
+            <button onClick={submitForm} disabled={clicked} className={clicked ? `${style.disabledButton}` : `${style.button}`}>{clicked ? '신청 중입니다...' : '사전 예약 신청' }</button>
         </>
     );
 };
