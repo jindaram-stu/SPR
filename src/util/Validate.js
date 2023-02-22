@@ -5,8 +5,18 @@ function validateName(name) {
 }
 
 function validatePhone(phone) {
+    const regex = /^[0-9]+$/; 
+
     if (phone === '' || phone === null) {
-        throw new Error('[전화번호]는 반드시 입력되어야 합니다.')
+        throw new Error('[휴대전화 번호]는 반드시 입력되어야 합니다.')
+    }
+
+    if (phone.length != 11) {
+        throw new Error('[휴대전화 번호]는 반드시 11자리를 입력하여야 합니다.')
+    }
+
+    if (!regex.test(phone)) {
+        throw new Error('[휴대전화 번호]는 반드시 숫자만 입력하여야 합니다.')
     }
 }
 
