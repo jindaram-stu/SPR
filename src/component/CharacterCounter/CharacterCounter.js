@@ -1,11 +1,20 @@
 import React from 'react';
-import style from './CharacterCounter.module.css'
+import styled from 'styled-components';
+
+const CounterContainer = styled.div`
+    text-align : right;
+`
+
+const Counter = styled.span`
+    font-size : 13px;
+    color : rgb(121, 121, 121)
+`
 
 const CharacterCounter = (props) => {
     return (
-        <div style={{textAlign: 'right'}}>
-            <span className={`${style.counter}`}>{props.comment.length}/200자</span>
-        </div>
+        <CounterContainer>
+            <Counter>{props.comment.length}/200자</Counter>
+        </CounterContainer>
     );
 };
 
