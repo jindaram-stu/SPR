@@ -1,0 +1,9 @@
+version: '3'
+services:
+  safely-pre:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name : spr
+    ports:
+      - "80:80"
