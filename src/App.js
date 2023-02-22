@@ -12,7 +12,7 @@ function App() {
   const [registerDone, setRegisterDone] = useState(false);
 
   useEffect( () => {
-    axios.get("https://script.google.com/macros/s/AKfycbwZMUMfolRTm8bHUBVYVDYuO7cevAuYpGAJjLpT_7Rfi5xvt98CkLbWnLekLG8B3mt_HQ/exec?canRegister=true")
+    axios.get(process.env.REACT_APP_SPREADSHEET_URL + "?canRegister=true")
     .then((res)=> {
       console.log(res.data.canRegister);
       setCanRegister(res.data.canRegister);

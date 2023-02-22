@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { validateForm } from '../../util/Validate';
 import style from './Submit.module.css'
 
-const SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbwZMUMfolRTm8bHUBVYVDYuO7cevAuYpGAJjLpT_7Rfi5xvt98CkLbWnLekLG8B3mt_HQ/exec';
+const SHEET_API_URL = process.env.REACT_APP_SPREADSHEET_URL;
 
 // const SubmitButton = styled.button`
 //     width : 100%;
