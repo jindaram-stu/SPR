@@ -31,6 +31,9 @@ const Select = styled.select`
     padding-left : 7px;
     border-radius : 3px;
     outline-color : #4D2EDD;
+    background-color : white;
+    color : black;
+    border : 1px solid rgba(0, 0, 0, 0.23);
 `
 
 const SubTitle = styled.p`
