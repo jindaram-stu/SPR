@@ -5,20 +5,6 @@ import style from './Submit.module.css'
 
 const SHEET_API_URL = process.env.REACT_APP_SPREADSHEET_URL;
 
-// const SubmitButton = styled.button`
-//     width : 100%;
-//     height : 50px;
-//     background-color:  #4D2EDD;
-//     border : none;
-//     border-radius: 5px;
-//     color : white;
-//     font-weight: bold;
-//     margin-top : 15px;
-//     font-size : 17px;
-
-//     color : ${(props) => props.clicked }
-// `
-
 const Submit = (props) => {
 
     const [clicked, setClicked] = useState(false);
@@ -46,6 +32,7 @@ const Submit = (props) => {
         formData.append('position' , form.position);
         formData.append('comment',form.comment);
         formData.append('privacyPolicy' , form.privacyPolicy);
+        formData.append('os',form.os);
 
         await axios.post(SHEET_API_URL, formData)
         .then((response) => {

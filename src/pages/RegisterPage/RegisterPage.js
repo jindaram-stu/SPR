@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormGroup } from '@mui/material';
 import Input from '../../component/Input/Input';
 import Submit from '../../component/Submit/Submit';
@@ -7,6 +7,9 @@ import SafelyPreImage from 'resource/main_image.png';
 import styled from 'styled-components';
 import Footer from '../../component/Footer'
 import ClauseCheckbox from 'component/Checkbox/ClauseCheckbox';
+import SelectBox from 'component/SelectBox/SelectBox';
+
+
 
 const RegisterPage = (props) => {
 
@@ -18,10 +21,16 @@ const RegisterPage = (props) => {
         "position" : "",
         "comment" : "",
         "privacyPolicy" : "X",
+        "os" : "none",
     })
 
     const handleValue = (e) => {
         setForm({...form, [e.target.name] : e.target.value});
+    }
+
+    const handleSelect = (e) => {
+        console.log(e.target.value);
+        console.log(e.target.name);
     }
 
     const handleCheck = (e) => {
@@ -32,13 +41,23 @@ const RegisterPage = (props) => {
         }
     }
 
+    useEffect(() => {
+        console.log(form);
+    },[form])
+
     return (
         <div>
             <SafelyBanner src={SafelyPreImage}/>
             <Container>
+
+                
                 
                 <Title>세이플리 사전 예약 신청</Title>
-                <SubTitle>※ 본 이벤트는 안드로이드폰 사용자만을 대상으로 합니다.</SubTitle>
+            
+                
+                <SelectBox
+                    name="os"
+                    handleValue={handleValue}/>
 
                 <Input
                     type="이름"

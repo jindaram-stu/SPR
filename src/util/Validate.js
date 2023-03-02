@@ -1,3 +1,9 @@
+function validateOs(os) {
+    if (os === 'none' || os === "" || os === null) {
+        throw new Error('[모바일 운영체제]는 반드시 선택해야 합니다.')
+    }
+}
+
 function validateName(name) {
     if (name === '' || name === null) {
         throw new Error('[이름]은 반드시 입력되어야 합니다.')
@@ -50,7 +56,8 @@ function validatePrivacyPolicy(privacyPolicy) {
     }
 }
 
-export function validateForm({name, phone, company, department, position, comment, privacyPolicy}) {
+export function validateForm({os, name, phone, company, department, position, comment, privacyPolicy}) {
+    validateOs(os);
     validateName(name);
     validatePhone(phone);
     validateCompany(company);
