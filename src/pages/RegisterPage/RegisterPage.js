@@ -28,11 +28,6 @@ const RegisterPage = (props) => {
         setForm({...form, [e.target.name] : e.target.value});
     }
 
-    const handleSelect = (e) => {
-        console.log(e.target.value);
-        console.log(e.target.name);
-    }
-
     const handleCheck = (e) => {
         if (e.target.checked === true) {
             setForm({...form, [e.target.name] : "O"});
@@ -41,19 +36,12 @@ const RegisterPage = (props) => {
         }
     }
 
-    useEffect(() => {
-        console.log(form);
-    },[form])
-
     return (
         <div>
             <SafelyBanner src={SafelyPreImage}/>
             <Container>
-
-                
                 
                 <Title>세이플리 사전 예약 신청</Title>
-            
                 
                 <SelectBox
                     name="os"
@@ -130,12 +118,5 @@ const Title = styled.h3`
     font-family: 'Noto Sans';
     letter-spacing : 3px;
 `   
-
-const SubTitle = styled.p`
-    text-align : center;
-    font-size : 12px;
-    color : gray;
-
-`
 
 export default RegisterPage;
