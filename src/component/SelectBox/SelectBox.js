@@ -9,7 +9,7 @@ const SelectBox = (props) => {
             <InputTitle>모바일 운영체제 <ColorBold>*</ColorBold></InputTitle>
             <SubTitle>* 운영체제 별 서비스 오픈 일정에 맞춰 알려드릴게요!</SubTitle>
             <Select name={name} onChange={handleValue} defaultValue="none">
-                <option value="none">사용중인 모바일 기기의 운영체제를 선택해주세요.</option>
+                <option value="none">사용 중인 모바일 기기의 운영체제를 선택해주세요.</option>
                 <option value="Android">안드로이드 - 갤럭시/LG 등</option>
                 <option value="iOS">iOS - 아이폰</option>
             </Select>
