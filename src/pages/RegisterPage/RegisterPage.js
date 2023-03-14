@@ -3,7 +3,7 @@ import { FormGroup } from '@mui/material';
 import Input from '../../component/Input/Input';
 import Submit from '../../component/Submit/Submit';
 import Comment from 'component/Comment/Comment';
-import SafelyPreImage from 'resource/main_image.png';
+import SafelyPreImage from 'resource/safely-0314.png';
 import styled from 'styled-components';
 import Footer from '../../component/Footer'
 import ClauseCheckbox from 'component/Checkbox/ClauseCheckbox';
